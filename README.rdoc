@@ -10,9 +10,37 @@ Models
   -- belongs to a user (owner)
   -- has many products
   -- has many orders
+  ~ name
+  ~ description
 
 - Product
   -- belongs to a store
+  -- has many order items
+  ~ name 
+  ~ description
+  ~ price
 
 - Order
-  -- belongs to a store
+  -- has many order items
+  -- has one order detail
+  ~ payment_method
+    ~ bank_deposit
+    ~ cash_on_delivery
+  ~ state
+    ~ for_delivery
+    ~ completed
+
+- OrderItem
+  -- belongs to product
+  -- belongs to order
+  ~ quantity
+  ~ size
+  ~ color
+
+- OrderDetail
+  -- belongs to order
+  ~ first name 
+  ~ last name
+  ~ address
+  ~ email
+  ~ contact number
