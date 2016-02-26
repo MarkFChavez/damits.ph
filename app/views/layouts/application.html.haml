@@ -10,12 +10,10 @@
     %nav
       .container
         .nav-wrapper
-          = link_to "damits.ph", "#", class: "brand-logo"
+          = link_to "damits.ph", root_path, class: "brand-logo"
           %ul.right.hide-on-med-and-down#nav-mobile
             %li
-              = link_to "about", "#"
-            %li 
-              = link_to "contact", "#"
+              = link_to "cart", "#"
 
     .container
       = yield

@@ -3,19 +3,7 @@
 Models
 ======
 
-- User
-  -- has many stores
-
-- Store
-  -- belongs to a user (owner)
-  -- has many products
-  -- has many orders
-  ~ name
-  ~ description
-
 - Product
-  -- belongs to a store
-  -- has many order items
   ~ name 
   ~ description
   ~ price
