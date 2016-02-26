@@ -1,5 +1,9 @@
 .row.top30
-  .col.s12
+  .col.l12
     .row
-      #products{ "data-columns" => "" }
-        = render @products
+      - if @products.any?
+        #products{ "data-columns" => "" }
+          = render @products
+      - else
+        .col.l12
+          %h3.center-align No products available

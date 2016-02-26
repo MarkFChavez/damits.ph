@@ -1,6 +1,6 @@
 .card
   .card-image
-    = image_tag("image1.jpg")
+    = image_tag(product.photo.url) if product.photo.present?
   .card-content
     %h5= product.name
   .card-action
