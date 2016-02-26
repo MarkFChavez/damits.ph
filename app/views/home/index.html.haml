@@ -1,29 +1,14 @@
 .row.top30
   .col.s12
     .row
-      .col.l4.s12
-        .card
-          .card-image
-            = image_tag("image1.jpg", height: "256")
-          .card-content
-            %p P499
-          .card-action
-            = link_to "Add to cart", "#"
-
-      .col.l4.s12
-        .card
-          .card-image
-            = image_tag("image2.jpg", height: "256")
-          .card-content
-            %p P280
-          .card-action
-            = link_to "Add to cart", "#"
-
-      .col.l4.s12
-        .card
-          .card-image
-            = image_tag("image3.jpg", height: "256")
-          .card-content
-            %p P250
-          .card-action
-            = link_to "Add to cart", "#"
+      #products{ "data-columns" => "" }
+        - @products.each do |product|
+          .card
+            .card-image
+              = image_tag("image1.jpg")
+            .card-content
+              %p.left= product.name
+              %p.right= number_to_currency(product.price, unit: "P")
+              .clear
+            .card-action
+              = link_to "Add to cart", "#"

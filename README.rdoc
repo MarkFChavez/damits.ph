@@ -4,9 +4,15 @@ Models
 ======
 
 - Product
+  -- has many order items
+  -- has many photos
   ~ name 
   ~ description
   ~ price
+
+- Photo
+  -- belongs to product
+  ~ attached_file
 
 - Order
   -- has many order items

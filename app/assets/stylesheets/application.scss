@@ -5,3 +5,11 @@ $primary-color: color("blue", "lighten-2") !default;
 .top30 {
   margin-top: 30px;
 }
+
+.clear {
+  clear: both;
+}
+
+#products[data-columns]::before {
+  content: '3 .col.l4.s12';
+}
