@@ -15,7 +15,10 @@
             %li
               = link_to "home", "#"
             %li
-              = link_to "cart", "#"
+              = link_to "#" do
+                %span cart 
+                - unless current_cart.empty?
+                  (#{number_to_currency(current_cart.total, unit: 'P')})
 
     .container
       = yield

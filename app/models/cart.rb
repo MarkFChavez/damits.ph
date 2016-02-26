@@ -4,4 +4,8 @@ class Cart < ActiveRecord::Base
   def tax_pct # we don't support taxes yet
     0
   end
+
+  def empty?
+    cart_items.empty?
+  end
 end
