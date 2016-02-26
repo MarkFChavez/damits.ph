@@ -10,6 +10,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'paperclip', '~> 4.3'
 gem 'materialize-sass'
 gem 'haml'
 gem 'haml-rails'
