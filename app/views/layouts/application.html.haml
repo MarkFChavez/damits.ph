@@ -13,9 +13,9 @@
 
           %ul.right.hide-on-med-and-down#nav-mobile
             %li
-              = link_to "home", "#"
+              = link_to "home", root_path
             %li
-              = link_to "#" do
+              = link_to cart_path do
                 %span cart 
                 - unless current_cart.empty?
                   (#{number_to_currency(current_cart.total, unit: 'P')})
