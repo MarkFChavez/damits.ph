@@ -2,9 +2,31 @@
   .col.l12
     %h3 Your Cart
 
-    .row
-      .col.l12
-        - if current_cart.empty?
-          %span Your cart is empty
-        - else
-          may laman
+    - if current_cart.empty?
+      %span Your cart is empty
+    - else
+      .row
+        .col.l8
+          %table 
+            %thead 
+              %tr 
+                %th Description
+                %th Quantity
+                %th Total
+                %th
+
+            %tbody
+              - current_cart.cart_items.each do |cart_item|
+                - item = cart_item.item
+                %tr
+                  %td
+                    = image_tag(item.photo.url(:thumb))
+                    = item.name
+                  %td
+                    = cart_item.quantity
+                  %td
+                    = number_to_currency(cart_item.subtotal, unit: "P")
+                  %td 
+                    = link_to cart_item_path(cart_item), method: :delete do
+                      %i.small.material-icons.red-text delete
+

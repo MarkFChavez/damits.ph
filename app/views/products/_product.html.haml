@@ -4,4 +4,4 @@
   .card-content
     %h5= product.name
   .card-action
-    = link_to "Buy 1 for #{number_to_currency(product.price, unit: 'P')}", "#", class: "blue-text text-lighten-2"
+    = link_to "Buy 1 for #{number_to_currency(product.price, unit: 'P')}", add_to_cart_path(product), class: "blue-text text-lighten-2", method: :patch
