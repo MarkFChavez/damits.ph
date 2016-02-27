@@ -7,19 +7,20 @@
     = stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav
-      .container
-        .nav-wrapper
-          = link_to "damits.ph", root_path, class: "brand-logo"
+    .navbar-fixed
+      %nav
+        .container
+          .nav-wrapper
+            = link_to "damits.ph", root_path, class: "brand-logo"
 
-          %ul.right.hide-on-med-and-down#nav-mobile
-            %li
-              = link_to "home", root_path
-            %li
-              = link_to cart_path do
-                %span cart 
-                - unless current_cart.empty?
-                  (#{number_to_currency(current_cart.total, unit: 'P')})
+            %ul.right.hide-on-med-and-down#nav-mobile
+              %li
+                = link_to "home", root_path
+              %li
+                = link_to cart_path do
+                  %span cart 
+                  - unless current_cart.empty?
+                    (#{number_to_currency(current_cart.total, unit: 'P')})
 
     .container
       = yield

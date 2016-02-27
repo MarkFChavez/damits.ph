@@ -1,4 +1,67 @@
 .row
   .col.l12
     %h3 Checkout
-    %span Your shipping info
+    %h5 Your shipping info
+
+    .row
+      .col.l8
+        = form_for @order, url: "#" do |f|
+          = fields_for @order.order_detail do |od|
+            .input-field
+              = od.label :name
+              = od.text_field :name
+
+            .input-field
+              = od.label :email
+              = od.email_field :email
+
+            .input-field
+              = od.label :address
+              = od.text_area :address, class: "materialize-textarea"
+          
+          %p 
+            Payment Method: 
+            .red-text.text-lighten-3
+              * we only support Cash on Delivery for now
+          %p
+            = f.radio_button :payment_method, :cash_on_delivery, checked: true, class: "with-gap"
+            = f.label :payment_method, "Cash on Delivery"
+
+          .top30
+            = f.submit "Place Your Order", class: "btn btn-large"
+
+      .col.l4 
+        .card
+          .card-content
+            %strong Order Summary
+  
+            %ul
+              - current_cart.cart_items.each do |cart_item|
+                - item = cart_item.item
+                %li
+                  .left
+                    %span.bold #{item.name} 
+                    %span x #{cart_item.quantity}
+                  .right 
+                    %span #{number_to_currency(cart_item.subtotal, unit: "P")}
+
+                  .clear
+
+            %div
+              .left
+                %span Subtotal
+              .right
+                #{number_to_currency(current_cart.total, unit: "P")}
+              
+              .clear
+
+            %hr
+
+            %div 
+              .left 
+                %span.bold TOTAL 
+              .right 
+                #{number_to_currency(current_cart.total, unit: "P")}
+
+              .clear
+              

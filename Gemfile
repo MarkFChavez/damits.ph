@@ -12,6 +12,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'state_machine'
 gem 'paperclip', '~> 4.3'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem 'materialize-sass'
