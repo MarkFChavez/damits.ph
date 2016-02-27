@@ -4,15 +4,10 @@ Models
 ======
 
 - Product
-  -- has many order items
-  -- has many photos
   ~ name 
   ~ description
   ~ price
-
-- Photo
-  -- belongs to product
-  ~ attached_file
+  ~ photo
 
 - Order
   -- has many order items
@@ -29,12 +24,9 @@ Models
   -- belongs to order
   ~ quantity
   ~ size
-  ~ color
 
 - OrderDetail
   -- belongs to order
-  ~ first name 
-  ~ last name
+  ~ name
   ~ address
   ~ email
-  ~ contact number
