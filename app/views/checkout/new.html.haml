@@ -33,7 +33,7 @@
       .col.l4 
         .card
           .card-content
-            %strong Order Summary
+            %strong ORDER SUMMARY
   
             %ul
               - current_cart.cart_items.each do |cart_item|
@@ -61,7 +61,8 @@
               .left 
                 %span.bold TOTAL 
               .right 
-                #{number_to_currency(current_cart.total, unit: "P")}
+                %span.bold
+                  #{number_to_currency(current_cart.total, unit: "P")}
 
               .clear
               

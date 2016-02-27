@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  validates :state, :payment_method, presence: true
+  validates :state, :payment_method, :total, presence: true
 
   has_one :order_detail, dependent: :destroy
   accepts_nested_attributes_for :order_detail
