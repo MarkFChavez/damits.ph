@@ -30,3 +30,23 @@
                     = link_to cart_item_path(cart_item), method: :delete do
                       %i.small.material-icons.red-text delete
 
+        .col.l4
+          .card
+            .card-content
+              .row
+                .col.l12
+                  %p
+                    You have #{pluralize(current_cart.total_unique_items, 'item')} in your cart.
+
+              .row
+                .col.l12
+                  %p
+                    Subtotal: 
+                    %span.bold 
+                      #{number_to_currency(current_cart.total, unit: "P")}
+
+              %div
+                = link_to "Checkout", "#", class: "blue-text text-lighten-2"
+
+              %div
+                = link_to "continue shopping", root_path, class: "blue-text text-lighten-2"

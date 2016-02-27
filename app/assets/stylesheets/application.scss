@@ -10,6 +10,10 @@ $primary-color: color("blue", "lighten-2") !default;
   clear: both;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 #products[data-columns]::before {
   content: '3 .col.l4.s12';
 }
