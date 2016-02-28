@@ -1,5 +1,10 @@
 class Order < ActiveRecord::Base
+  SHIPPING_FEE = 0.00
+
   validates :state, :payment_method, presence: true
+
+  has_many :order_items, dependent: :destroy
+  has_many :products, through: :order_items
 
   has_one :order_detail, dependent: :destroy
   accepts_nested_attributes_for :order_detail
@@ -12,5 +17,9 @@ class Order < ActiveRecord::Base
     event :complete do
       transition :for_delivery => :completed
     end
+  end
+
+  def total
+    products.sum(:price) + SHIPPING_FEE
   end
 end

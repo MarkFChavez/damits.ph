@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227024002) do
+ActiveRecord::Schema.define(version: 20160228074142) do
 
   create_table "cart_items", force: true do |t|
     t.integer "owner_id"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20160227024002) do
   end
 
   add_index "order_details", ["order_id"], name: "index_order_details_on_order_id"
+
+  create_table "order_items", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_items", ["order_id", "product_id"], name: "index_order_items_on_order_id_and_product_id"
 
   create_table "orders", force: true do |t|
     t.string   "payment_method"
