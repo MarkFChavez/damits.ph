@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   patch "/cart/add/:id" => "carts#update", as: :add_to_cart
 
   resources :cart_items, only: [:destroy]
+  resources :orders, only: [:create]
 end
