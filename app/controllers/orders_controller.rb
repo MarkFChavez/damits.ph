@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     redirect_to root_path
 
   rescue Exception => e
-    e.message
+    redirect_to root_path
   end
 
   private
