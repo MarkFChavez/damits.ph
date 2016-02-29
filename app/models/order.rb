@@ -1,7 +1,8 @@
 class Order < ActiveRecord::Base
   SHIPPING_FEE = 0.00
 
-  validates :state, :payment_method, presence: true
+  validates :state, :payment_method, :reference_number, presence: true
+  validates :reference_number, uniqueness: true
 
   has_many :order_items, dependent: :destroy
   has_many :products, through: :order_items
