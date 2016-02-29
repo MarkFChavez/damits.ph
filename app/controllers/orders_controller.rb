@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     current_cart.clear
 
-    redirect_to order_success_path
+    render "orders/success/show"
   end
 
   private
