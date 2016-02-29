@@ -9,9 +9,6 @@ class OrdersController < ApplicationController
     current_cart.clear
 
     redirect_to root_path
-
-  rescue Exception => e
-    redirect_to root_path
   end
 
   private
