@@ -1,4 +1,11 @@
 class OrdersController < ApplicationController
+  def new
+    redirect_to root_path and return if current_cart.empty?
+
+    @order = Order.new
+    @order.build_order_detail
+  end
+
   def create
     @order = Order.new(order_params)
     @order.reference_number = ReferenceNumberPool.next_reference!
