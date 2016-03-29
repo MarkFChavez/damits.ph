@@ -4,16 +4,20 @@ class OrdersController < ApplicationController
     @order.reference_number = ReferenceNumberPool.next_reference!
     @order.save!
 
-    current_cart.cart_items.each do |cart_item|
-      @order.order_items.create(product: cart_item.item)
-    end
-
-    current_cart.clear
+    add_items_on_order(@order)
 
     render "orders/success/show"
   end
 
   private
+
+  def add_items_on_order(order)
+    current_cart.cart_items.each do |cart_item|
+      order.order_items.create(product: cart_item.item)
+    end
+
+    current_cart.clear
+  end
 
   def order_params
     params.require(:order).
